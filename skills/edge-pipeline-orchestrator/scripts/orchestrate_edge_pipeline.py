@@ -18,13 +18,25 @@ import yaml
 
 EXPORTABLE_FAMILIES = {"pivot_breakout", "gap_up_continuation"}
 
+# Resolve script paths relative to the skills project root
+# (3 levels up from this script: scripts/ -> edge-pipeline-orchestrator/ -> skills/ -> project root)
+_SKILLS_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+
 SCRIPT_PATHS = {
-    "auto_detect": "skills/edge-candidate-agent/scripts/auto_detect_candidates.py",
-    "hints": "skills/edge-hint-extractor/scripts/build_hints.py",
-    "concepts": "skills/edge-concept-synthesizer/scripts/synthesize_edge_concepts.py",
-    "drafts": "skills/edge-strategy-designer/scripts/design_strategy_drafts.py",
-    "review": "skills/edge-strategy-reviewer/scripts/review_strategy_drafts.py",
-    "export": "skills/edge-candidate-agent/scripts/export_candidate.py",
+    "auto_detect": str(
+        _SKILLS_PROJECT_ROOT / "skills/edge-candidate-agent/scripts/auto_detect_candidates.py"
+    ),
+    "hints": str(_SKILLS_PROJECT_ROOT / "skills/edge-hint-extractor/scripts/build_hints.py"),
+    "concepts": str(
+        _SKILLS_PROJECT_ROOT / "skills/edge-concept-synthesizer/scripts/synthesize_edge_concepts.py"
+    ),
+    "drafts": str(
+        _SKILLS_PROJECT_ROOT / "skills/edge-strategy-designer/scripts/design_strategy_drafts.py"
+    ),
+    "review": str(
+        _SKILLS_PROJECT_ROOT / "skills/edge-strategy-reviewer/scripts/review_strategy_drafts.py"
+    ),
+    "export": str(_SKILLS_PROJECT_ROOT / "skills/edge-candidate-agent/scripts/export_candidate.py"),
 }
 
 MAX_REVIEW_ITERATIONS = 2
