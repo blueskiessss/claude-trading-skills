@@ -1466,7 +1466,7 @@ Pattern: `subtheme_{category}{subtopic}`. Pass bare slugs via `--subthemes`.
 | `ecommercegrocery` | E-commerce - Grocery & Local Commerce Platforms |
 | `ecommercelogistics` | E-commerce - Logistics & Delivery |
 | `ecommercemarketplaces` | E-commerce - Online Marketplaces |
-| `ecommerceomnichannel` | E-commerce - Omnichannel Retailers |
+| `ecommerceomnichannel` | E-commerce - Omnichannel Retailers, Online & Physical Stores |
 | `ecommerceplatforms` | E-commerce - Platforms |
 | `ecommercesecondhand` | E-commerce - Recommerce, Secondhand Marketplaces |
 | `ecommercesocial` | E-commerce - Social & Influencer Commerce |
@@ -1506,7 +1506,7 @@ Pattern: `subtheme_{category}{subtopic}`. Pass bare slugs via `--subthemes`.
 #### Entertainment (6)
 | Slug | Label |
 |------|-------|
-| `entertainmentbetting` | Entertainment - Sports Betting & Prediction Markets |
+| `entertainmentbetting` | Entertainment - Sports Betting, Wagering & Prediction Markets |
 | `entertainmentgambling` | Entertainment - iGaming & Online Gambling |
 | `entertainmentgaming` | Entertainment - Game Publishers & Developers |
 | `entertainmentinfrastructure` | Entertainment - Streaming & Gaming Infrastructure |
@@ -1627,7 +1627,7 @@ Pattern: `subtheme_{category}{subtopic}`. Pass bare slugs via `--subthemes`.
 | `realestateoffice` | Real Estate - Office & Commercial Workspaces |
 | `realestateretail` | Real Estate - Retail & Consumer Real Estate |
 | `realestatetourism` | Real Estate - Travel & Entertainment Properties |
-| `realestatewarehousing` | Real Estate - E-Commerce & Logistics |
+| `realestatewarehousing` | Real Estate - E-Commerce, Warehousing & Logistics |
 
 #### Robotics (6)
 | Slug | Label |

@@ -332,11 +332,11 @@ def main(argv: list[str] | None = None) -> None:
     themes: list[str] | None = None
     subthemes: list[str] | None = None
 
-    if args.filters:
+    if args.filters is not None:
         filters = validate_filters(args.filters)
-    if args.themes:
+    if args.themes is not None:
         themes = validate_grouped_slugs(args.themes, "theme")
-    if args.subthemes:
+    if args.subthemes is not None:
         subthemes = validate_grouped_slugs(args.subthemes, "subtheme")
 
     if not filters and not themes and not subthemes:

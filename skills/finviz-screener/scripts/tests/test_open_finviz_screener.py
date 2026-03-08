@@ -323,18 +323,24 @@ class TestValidateFilters:
     def test_known_prefixes_include_subtheme(self):
         assert "subtheme_" in KNOWN_PREFIXES
 
-    def test_conflict_theme_in_filters(self):
+    def test_conflict_theme_in_filters(self, capsys):
         with pytest.raises(SystemExit):
             validate_filters("theme_artificialintelligence,cap_small")
+        captured = capsys.readouterr()
+        assert "--themes" in captured.err
 
-    def test_conflict_subtheme_in_filters(self):
+    def test_conflict_subtheme_in_filters(self, capsys):
         with pytest.raises(SystemExit):
             validate_filters("subtheme_aicloud,cap_small")
+        captured = capsys.readouterr()
+        assert "--subthemes" in captured.err
 
-    def test_conflict_theme_pipe_in_filters(self):
+    def test_conflict_theme_pipe_in_filters(self, capsys):
         """Pipe-containing theme token must be caught before _TOKEN_RE rejects it."""
         with pytest.raises(SystemExit):
             validate_filters("theme_artificialintelligence|cybersecurity")
+        captured = capsys.readouterr()
+        assert "--themes" in captured.err
 
 
 # ---------------------------------------------------------------------------
@@ -548,6 +554,15 @@ class TestMainIntegration:
         captured = capsys.readouterr()
         assert "%7C" in captured.out or "|" in captured.out
         assert "subtheme_" in captured.out
+
+    def test_empty_themes_string(self, capsys):
+        """--themes '' should produce a specific error, not the generic 'at least one' error."""
+        from open_finviz_screener import main
+
+        with pytest.raises(SystemExit):
+            main(["--themes", "", "--url-only"])
+        captured = capsys.readouterr()
+        assert "--themes must contain at least one slug" in captured.err
 
     def test_no_input_at_all(self):
         from open_finviz_screener import main
